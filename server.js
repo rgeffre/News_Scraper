@@ -55,6 +55,10 @@ app.get("/scrape", function(req, res) {
       // Save an empty result object
       var result = {};
 
+      $("a[href^='http']").each(function() {
+        $(this).prepend('<img src="https://www.google.com/s2/favicons?domain=' + this.href + '">');
+      });
+
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this).children("a").text();
       result.summary = $(this).children("a").text();
