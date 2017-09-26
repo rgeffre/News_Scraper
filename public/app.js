@@ -2,8 +2,8 @@
 $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
-    // Display the apropos information on the page
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].summary + data[i].link + "</p>");
+    // Display the article information on the page
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].summary + "<br /> <a href='"+ data[i].link + "'>"+ data[i].link +"</a></p>");
   }
 });
 
@@ -31,7 +31,7 @@ $(document).on("click", "p", function() {
       // A button to submit a new note, with the id of the article saved to it
       $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
       //A button to delete a note
-      $("#notes").append("<button id='deletenote'>Delete Note</button>");
+      $("#notes").append("<button data-id='" + data._id + "' id='deletenote'>Delete Note</button>");
 
       // If there's a note in the article
       if (data.note) {

@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 // Database configuration with mongoose
-mongoose.connect("mongodb://heroku_xg50v0d2:ki9d0igqodnb1nrtbvj4e94njj@ds141524.mlab.com:41524/heroku_xg50v0d2");
+mongoose.connect("mongodb://localhost/scraperdb");
 var db = mongoose.connection;
 
 // Show any mongoose errors
@@ -55,6 +55,7 @@ app.get("/scrape", function(req, res) {
       // Save an empty result object
       var result = {};
 
+     //Pulling in the favicon for the pages
       $("a[href^='http']").each(function() {
         $(this).prepend('<img src="https://www.google.com/s2/favicons?domain=' + this.href + '">');
       });
@@ -151,12 +152,19 @@ app.post("/articles/:id", function(req, res) {
   });
 });
 
-/*app.delete("/articles/:id, function(req, res) {" +
-    "Article.findOneandRemove({"_id": req.params.id}, {"note": doc._id})
-.exec(function(err, doc) {
-  if (err) {
-  }
-}*/
+app.delete("/articles/:id", function(req, res) {
+  Article.findOneAndRemove({"_id": req.params.id}, {"note": doc._id}).
+      exec(function(err, doc) {
+        if (err) {
+          console.log(err);
+        }
+        else {
+          res.send(doc);
+        }
+      });
+});
+
+
 
 
 // Listen on port 3000
