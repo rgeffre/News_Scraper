@@ -17,12 +17,12 @@
   },
   "homepage": "https://github.com/rgeffre/Mongo_Scraper#readme",
   "dependencies": {
-    "body-parser": "^1.18.1",
+    "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
-    "express": "^4.15.4",
+    "express": "^4.16.0",
     "express-handlebars": "^3.0.0",
-    "mongoose": "^4.10.8",
-    "morgan": "^1.8.2",
-    "request": "^2.82.0"
+    "mongoose": "^4.11.14",
+    "morgan": "^1.9.1",
+    "request": "^2.84.0"
   }
 }
