@@ -4,7 +4,9 @@
   "description": "Web data scraping app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,8 @@
     "express-handlebars": "^3.0.0",
     "mongoose": "^4.10.8",
     "morgan": "^1.8.2",
-    "request": "^2.82.0"
-  }
+    "request": "^2.82.0",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
